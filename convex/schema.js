@@ -7,6 +7,6 @@ export default defineSchema({
     email: v.string(),
     picture: v.string(),
     credits: v.number(),
-    paymentId: v.optional(v.string()),
-  }),
+    paymentId: v.optional(v.string())
+  })
 });
