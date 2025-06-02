@@ -1,10 +1,12 @@
 "use client";
 
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { UserDetailContext } from '@/context/UserDetailContext';
 import { api } from '@/convex/_generated/api';
 import { useUser } from '@clerk/nextjs';
 import { useMutation } from 'convex/react';
 import React, { useEffect, useState } from 'react';
+import AppSidebar from './_components/AppSidebar';
 
 function WorkspaceProvider({ children }) {
   const newUserMutation = useMutation(api.users.CreateNewUser);
@@ -34,7 +36,12 @@ function WorkspaceProvider({ children }) {
   //  {children}</>; 
   return (
     <UserDetailContext.Provider value={{userDetail,setUserDetail}}>
-      <div>{children}</div>
+       <SidebarProvider>
+         <AppSidebar />
+      <div>
+          <SidebarTrigger/>
+             {children}</div>
+      </SidebarProvider>
       </UserDetailContext.Provider>
   )
 }
