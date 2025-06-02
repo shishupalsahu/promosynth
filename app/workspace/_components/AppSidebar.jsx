@@ -26,7 +26,7 @@ const MenuOptions = [
   {
     title: 'Create Ad',
     icon: Video,
-    path: '/workspace/creat-ad'
+    path: '/workspace/create-ad'
   },
   {
     title: 'My Videos',
